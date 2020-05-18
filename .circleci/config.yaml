@@ -1,0 +1,32 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/js:1.0.0
+    steps:
+      - attach_workspace:
+        at: .
+      - node/install-package-manager:
+          npm: true
+      - run:
+          name: Install Dependencies
+          command: cd static && npm install
+      - run:
+          name: Build
+          command: cd static && npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - static
+  test:
+    docker:
+      - image: circleci/js:1.0.0
+    steps:
+      - checkout
+      - run: <command>
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      # - test
