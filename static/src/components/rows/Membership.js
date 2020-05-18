@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Segment, Header, Divider, Card, Image, Icon } from 'semantic-ui-react'
+import { Grid, Segment, Header, Divider, Card, Image } from 'semantic-ui-react'
 import './Styles/Membership.css'
 
 const gallardoImage = require('../../images/gallardo1.jpg')
