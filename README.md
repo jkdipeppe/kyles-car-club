@@ -8,6 +8,10 @@ Static site for my car club
  - npm start
  - app should be viewable locally at localhost:3000
 
+ # Heroku deployment
+  - git subtree push --prefix static heroku master
+
+
 # Status
 Implemented design and most components for desktop viewing.
 Finishing up FAQ  design improvements and Apply Page/Linking
