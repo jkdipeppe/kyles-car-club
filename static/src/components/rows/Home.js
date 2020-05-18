@@ -6,12 +6,7 @@ import {
   Divider,
   Icon,
   Grid,
-  Table,
-  Modal,
-  Form,
-  TextArea,
-  Select,
-  Input
+  Table
 } from 'semantic-ui-react';
 import './Styles/Home.css';
 
