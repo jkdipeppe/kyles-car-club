@@ -1,32 +1,17 @@
-version: 2
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
 jobs:
-  build:
-    docker:
-      - image: circleci/js:1.0.0
-    steps:
-      - attach_workspace:
-        at: .
-      - node/install-package-manager:
-          npm: true
-      - run:
-          name: Install Dependencies
-          command: cd static && npm install
-      - run:
-          name: Build
-          command: cd static && npm run build
-      - persist_to_workspace:
-          root: .
-          paths:
-            - static
-  test:
-    docker:
-      - image: circleci/js:1.0.0
+  build-and-run:
+    executor:
+      name: node/default
     steps:
       - checkout
-      - run: <command>
+      - node/with-cache:
+          steps:
+            - run: npm install
+            - run: npm start
 workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
-      # - test
+    build-and-test:
+      jobs:
+        - build-and-run
